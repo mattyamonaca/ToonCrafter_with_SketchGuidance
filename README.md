@@ -1,5 +1,7 @@
 ## ___***ToonCrafter_with_SketchGuidance***___
-
+This repository is an implementation that recreates the SketchGuidance feature of "ToonCrafter".
+https://github.com/ToonCrafter/ToonCrafter
+https://arxiv.org/pdf/2405.17933
 
 https://github.com/user-attachments/assets/f72f287d-f848-4982-8f91-43c49d037007
 
@@ -13,7 +15,7 @@ https://github.com/user-attachments/assets/f72f287d-f848-4982-8f91-43c49d037007
 |SketchEncoder|TBD| TBD |[Hugging Face](https://huggingface.co/Doubiiu/ToonCrafter/blob/main/sketch_encoder.ckpt)|
 
 
-Currently, our ToonCrafter can support generating videos of up to 16 frames with a resolution of 512x320. The inference time can be reduced by using fewer DDIM steps.
+Currently, ToonCrafter can support generating videos of up to 16 frames with a resolution of 512x320. The inference time can be reduced by using fewer DDIM steps.
 
 
 
