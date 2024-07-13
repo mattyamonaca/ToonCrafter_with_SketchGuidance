@@ -77,7 +77,7 @@ class Image2Video():
         self.model_list = model_list
         self.save_fps = 8
 
-    def get_image(self, image, prompt, steps=50, cfg_scale=7.5, eta=1.0, fs=3, seed=123, image2=None, frame_guides=None):
+    def get_image(self, image, prompt, steps=50, cfg_scale=7.5, eta=1.0, fs=3, seed=123, image2=None, frame_guides=None,control_scale=0.6):
         control_frames = extract_frames(frame_guides)
         seed_everything(seed)
         transform = transforms.Compose([
@@ -118,6 +118,12 @@ class Image2Video():
                     cn_videos.append(cn_video)
                 
                 cn_videos = torch.cat(cn_videos, dim=2)
+                model_list = []
+                for model in self.model_list:
+                    model.control_scale = control_scale
+                    model_list.append(model)
+                self.model_list = model_list
+                
             else:
                 cn_videos = None
 

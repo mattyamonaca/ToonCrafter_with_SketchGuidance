@@ -749,6 +749,7 @@ class LatentDiffusion(DDPM):
             control_x = rearrange(x_noisy, 'b c t h w-> (b t) c h w')
             control_context = repeat(cond["c_crossattn"][0], "b c l-> (repeat b) c l", repeat=16)
             control = self.control_model(x=control_x, hint=control_cond, timesteps=t, context=control_context)
+            control = [c * self.control_scale for c in control]
         else:
             control = None
 

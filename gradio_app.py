@@ -47,6 +47,7 @@ def dynamicrafter_demo(result_dir='./tmp/', res=512):
                         with gr.Row():
                             i2v_steps = gr.Slider(minimum=1, maximum=60, step=1, elem_id="i2v_steps", label="Sampling steps", value=50)
                             i2v_motion = gr.Slider(minimum=5, maximum=30, step=1, elem_id="i2v_motion", label="FPS", value=10)
+                            control_scale = gr.Slider(minimum=0.0, maximum=1.0, step=0.1, elem_id="i2v_ctrl_scale", label="control_scale", value=0.6)
                         i2v_end_btn = gr.Button("Generate")
                     with gr.Column():
                         with gr.Row():
@@ -55,12 +56,12 @@ def dynamicrafter_demo(result_dir='./tmp/', res=512):
                             i2v_output_video = gr.Video(label="Generated Video",elem_id="output_vid",autoplay=True,show_share_button=True)
 
                 gr.Examples(examples=i2v_examples_interp_512,
-                            inputs=[i2v_input_image, i2v_input_text, i2v_steps, i2v_cfg_scale, i2v_eta, i2v_motion, i2v_seed, i2v_input_image2],
+                            inputs=[i2v_input_image, i2v_input_text, i2v_steps, i2v_cfg_scale, i2v_eta, i2v_motion, i2v_seed, i2v_input_image2, control_scale],
                             outputs=[i2v_output_video],
                             fn = image2video.get_image,
                             cache_examples=False,
                 )
-            i2v_end_btn.click(inputs=[i2v_input_image, i2v_input_text, i2v_steps, i2v_cfg_scale, i2v_eta, i2v_motion, i2v_seed, i2v_input_image2, frame_guides],
+            i2v_end_btn.click(inputs=[i2v_input_image, i2v_input_text, i2v_steps, i2v_cfg_scale, i2v_eta, i2v_motion, i2v_seed, i2v_input_image2, frame_guides, control_scale],
                             outputs=[i2v_output_video],
                             fn = image2video.get_image
             )
