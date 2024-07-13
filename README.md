@@ -1,7 +1,8 @@
 ## ___***ToonCrafter_with_SketchGuidance***___
 This repository is an implementation that recreates the SketchGuidance feature of "ToonCrafter".
-https://github.com/ToonCrafter/ToonCrafter
-https://arxiv.org/pdf/2405.17933
+
+- https://github.com/ToonCrafter/ToonCrafter
+- https://arxiv.org/pdf/2405.17933
 
 https://github.com/user-attachments/assets/f72f287d-f848-4982-8f91-43c49d037007
 
